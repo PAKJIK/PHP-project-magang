@@ -14,28 +14,28 @@ $result = $db->query($sql);
                <p class="ml-3">
                   <a href="?page=pages/kategori/create" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> Tambah kategori</a>
                </p>
-            </div>
-            <div class="table-responsive">
-               <table class="table center-aligned-table">
-                  <thead>
-                     <tr class="text-primary">
-                        <th>No.</th>
-                        <th>ID Kategori</th>
-                        <th>Nama Kategori</th>
-                        <th>Deskripsi Kategori</th>
-                        <th>#Aksi</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php foreach ($result as $key => $value) : ?>
-                        <tr>
-                           <td><?= $key + 1 ?></td>
-                           <td><?= ucfirst($value["id_kategori"]) ?></td>
-                           <td><?= ucfirst($value["nama_kategori"]) ?></td>
-                           <td><?= ucfirst($value["deskripsi_kategori"]) ?></td>
-                           <td>
-                              <a href="?page=pages/kategori/edit&id_kategori=<?= $value["id_kategori"] ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                              <a onclick="return confirm('Yakinn?')" href="?page=pages/kategori/delete&id_kategori=<?= $value["id_kategori"] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Remove</a>
+               </div>
+               <div class="table-responsive">
+                  <table class="table center-aligned-table">
+                     <thead>
+                        <tr class="text-primary">
+                           <th>No.</th>
+                           <th>ID Kategori</th>
+                           <th>Nama Kategori</th>
+                           <th>Deskripsi Kategori</th>
+                           <th>#Aksi</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <?php foreach ($result as $key => $value) : ?>
+                           <tr>
+                              <td><?= $key + 1 ?></td>
+                              <td><?= ucfirst($value["id_kategori"]) ?></td>
+                              <td><?= ucfirst($value["nama_kategori"]) ?></td>
+                              <td><?= ucfirst($value["deskripsi_kategori"]) ?></td>
+                              <td>
+                                 <a href="?page=pages/kategori/edit&id_kategori=<?= $value["id_kategori"] ?>" class="btn btn-primary btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                                 <a onclick="return confirm('Yakinn?')" href="?page=pages/kategori/delete&id_kategori=<?= $value["id_kategori"] ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Remove</a>
                            </td>
                         </tr>
                      <?php endforeach; ?>
