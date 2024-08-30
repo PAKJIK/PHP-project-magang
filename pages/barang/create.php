@@ -8,16 +8,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $harga_barang =  $db->real_escape_string($_POST['harga_barang']);
    $stock_barang =  $db->real_escape_string($_POST['stock_barang']);
    
-   $namaFile = $_FILES['image']['name'];
-   $tmpName = $_FILES['image']['tmp_name'];
-
-   $generateUniqueName = uniqid("", true). $namaFile;
-   // simpan ke folder uploads
-   $fileDestination = 'uploads/'.$generateUniqueName;
-   move_uploaded_file($tmpName, $fileDestination);
-
    // Insert ke database
-   $sql = "INSERT INTO barang (id_barang,id_kategori_barang,deskripsi_barang,nama_barang,harga_barang,stock_barang,image) VALUES ('$id_barang','$id_kategori','$deskripsi_barang','$nama_barang','$harga_barang','$stock_barang')";
+   $sql = "INSERT INTO barang (id_barang,id_kategori_barang,deskripsi_barang,nama_barang,harga_barang,stock_barang) VALUES ('$id_barang','$id_kategori_barang','$deskripsi_barang','$nama_barang','$harga_barang','$stock_barang')";
    if ($db->query($sql) === TRUE) {
       echo "<script>alert('barang created successfully.');window.location.href='index.php?page=pages/barang/index';</script>";
    } else {
@@ -39,28 +31,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
              <form action="" method="post" enctype="multipart/form-data">
                <div class="form-group">
-                  <label for="id_barang$barang">barang$barang barang </label>
-                  <select name="id_barang$barang" id="id_barang" class="form-control p-input" required>
-                     <option value="">--select barang$barang</option>
-                     <?php foreach($barang as $item): ?>
-                        <option value="<?=$item['id_barang$barang']?>"><?=$item['nama_barang$barang']?></option>
-                        <?php endforeach;?>
-                  </select>
-                  <label for="id_kategori$kategori">kategori$kategori kategori </label>
-                  <select name="id_kategori$kategori" id="id_kategori" class="form-control p-input" required>
-                     <option value="">--select kategori$kategori</option>
-                     <?php foreach($kategori as $item): ?>
-                        <option value="<?=$item['id_kategori$kategori']?>"><?=$item['nama_kategori$kategori']?></option>
-                        <?php endforeach;?>
-                  </select>
+               </div>
+               <div class="form-group">
+                  <label for="id_barang">ID barang </label>
+                  <input type="text" class="form-control p-input" id="id_barang" placeholder="Masukkan id_barang" name="id_barang" required>
+               </div>
+               <div class="form-group">
+                  <label for="id_kategori_barang">nama kategori barang </label>
+                  <input type="text" class="form-control p-input" id="id_kategori_barang" placeholder="Masukkan id_kategori_barang" name="id_kategori_barang" required>
                </div>
                <div class="form-group">
                   <label for="deskripsi_barang">deskripsi barang </label>
                   <input type="text" class="form-control p-input" id="deskripsi_barang" placeholder="Masukkan deskripsi_barang" name="deskripsi_barang" required>
-               </div>
-               <div class="form-group">
-                  <label for="image">Image </label>
-                  <input type="file" class="form-control p-input" id="image" name="image" required>
                </div>
                <div class="form-group">
                   <label for="nama_barang">Nama Barang </label>

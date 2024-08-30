@@ -60,5 +60,19 @@
               <span class="menu-title">supplier</span>
             </a>
           </li>
+          <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=pages/supplier/index">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">barang masuk</span>
+            </a>
+          </li>
+          <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=pages/supplier/index">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">barang keluar</span>
+            </a>
+          </li>
         </ul>
       </nav>

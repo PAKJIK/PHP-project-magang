@@ -1,5 +1,5 @@
 <?php
-$sql = "SELECT * FROM barang JOIN kategori_barang ON  barang.id_kategori_barang=kategori.id_kategori_barang ORDER BY nama_barang ASC";
+$sql = "SELECT * FROM barang JOIN kategori_barang ON  barang.id_kategori_barang=kategori_barang.id_kategori_barang ORDER BY nama_barang ASC";
 $result = $db->query($sql);
 ?>
 
@@ -21,7 +21,7 @@ $result = $db->query($sql);
                      <tr class="text-primary">
                         <th>No.</th>
                         <th>ID Barang</th>
-                        <th>ID Kategori</th>
+                        <th>nama Kategori</th>
                         <th>Deskripsi Barang</th>
                         <th>harga barang</th>
                         <th>stock barang</th>
@@ -33,9 +33,8 @@ $result = $db->query($sql);
                         <tr>
                            <td><?= $key + 1 ?></td>
                            <td><?= ucfirst($value["id_barang"]) ?></td>
-                           <td><?= ucfirst($value["id_kategori_barang"]) ?></td>
+                           <td><?= ucfirst($value["nama_kategori_barang"]) ?></td>
                            <td><?= ucfirst($value["deskripsi_barang"]) ?></td>
-                           <td><?= ucfirst($value["nama_barang"]) ?></td>
                            <td><?= ucfirst($value["harga_barang"]) ?></td>
                            <td><?= ucfirst($value["stock_barang"]) ?></td>
                            <td>
