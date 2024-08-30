@@ -34,7 +34,7 @@
                     <img src="assets/images/faces/face4.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-normal">David Grey
+                  <h6 class="preview-subject ellipsis font-weight-normal">dadang
                   </h6>
                   <p class="font-weight-light small-text text-muted mb-0">
                     The meeting is cancelled
@@ -46,7 +46,7 @@
                     <img src="assets/images/faces/face2.jpg" alt="image" class="profile-pic">
                 </div>
                 <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-normal">Tim Cook
+                  <h6 class="preview-subject ellipsis font-weight-normal">Tim amuba
                   </h6>
                   <p class="font-weight-light small-text text-muted mb-0">
                     New product launch

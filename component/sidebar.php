@@ -4,7 +4,7 @@
             <img src="assets/images/faces/face28.png">
           </div>
           <div class="user-name">
-              Edward Spencer
+              pakjik
           </div>
           <div class="user-designation">
               Developer
@@ -38,6 +38,27 @@
               <span class="menu-title">produk</span>
             </a>
           </li>
-          
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=pages/barang/index">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">barang</span>
+            </a>
+          </li>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=pages/kategori_barang/index">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">kategori barang</span>
+            </a>
+          </li>
+        
+          <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.php?page=pages/supplier/index">
+              <i class="icon-box menu-icon"></i>
+              <span class="menu-title">supplier</span>
+            </a>
+          </li>
         </ul>
       </nav>

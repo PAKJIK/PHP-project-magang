@@ -5,3 +5,4 @@ if (!empty($_GET["page"])) {
 } else {
    include "pages/dashboard/index.php";
 }
+?>

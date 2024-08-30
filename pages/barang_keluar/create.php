@@ -31,8 +31,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <input type="text" class="form-control p-input" id="id_kategori" placeholder="Masukkan id_kategori" name="id_kategori" required>
                </div>
                <div class="form-group">
-                  <label for="nama_kategori_barang">Nama kategori </label>
-                  <input type="text" class="form-control p-input" id="nama_kategori_barang" placeholder="Masukkan nama_kategori_barang" name="nama_kategori_barang" required>
+                  <label for="nama_kategori">Nama kategori </label>
+                  <input type="text" class="form-control p-input" id="nama_kategori" placeholder="Masukkan nama_kategori" name="nama_kategori" required>
                </div>
                <div class="form-group">
                   <label for="deskripsi_kategori">Deskripsi Kategori </label>
