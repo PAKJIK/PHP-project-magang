@@ -7,7 +7,7 @@ if (empty($barang)) {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $id_barang =  $db->real_escape_string($_POST['id_barang']);
-   $id_kategori =  $db->real_escape_string($_POST['id_kategori']);
+   $nama_kategori_barang =  $db->real_escape_string($_POST['nama_kategori_barang']);
    $deskripsi_barang =  $db->real_escape_string($_POST['deskripsi_barang']);
    $nama_barang =  $db->real_escape_string($_POST['nama_barang']);
    $harga_barang =  $db->real_escape_string($_POST['harga_barang']);
@@ -39,12 +39,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <label for="id_barang">ID barang</label>
                   <input type="text" class="form-control p-input" id="id_barang" placeholder="Masukkan id barang" name="id_barang" required value="<?= $barang['id_barang'] ?>">
                </div>
-                  <label for="id_kategori">ID kategori</label>
-                  <input type="text" class="form-control p-input" id="id_kategori" placeholder="Masukkan id kategori" name="id_kategori" required value="<?= $barang['id_kategori'] ?>">
+                  <label for="nama_kategori_barang">ID kategori</label>
+                  <input type="text" class="form-control p-input" id="nama_kategori_barang" placeholder="Masukkan nama kategori barang" name="nama_kategori_barang" required value="<?=$barang['nama_kategori_barang'] ?>">
                </div>
                </div>
                   <label for="deskripsi_barang">Deskripsi Barang</label>
-                  <input type="text" class="form-control p-input" id="deskripsi_barang" placeholder="Masukkan id kategori" name="deskripsi_barang" required value="<?= $barang['deskripsi_barang'] ?>">
+                  <input type="text" class="form-control p-input" id="deskripsi_barang" placeholder="Masukkan deskripsi barang" name="deskripsi_barang" required value="<?= $barang['deskripsi_barang'] ?>">
                </div>
 
                <div class="form-group">

@@ -1,17 +1,19 @@
 <?php
-$id_kategori_barang = $_GET['id_kategori_barang'];
+$error = '';
+$id_kategori_barang = $db->real_escape_string($_GET['id_kategori_barang']);
 $kategori_barang = $db->query("SELECT * FROM kategori_barang WHERE id_kategori_barang = $id_kategori_barang");
 $kategori_barang = $kategori_barang->fetch_assoc();
 if (empty($kategori_barang)) {
    echo "<script>alert('kategori_barang not found.');window.location.href='index.php?page=pages/kategori_barang/index';</script>";
 }
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+if (isset($_POST['id_kategori_barang'])) {
    $id_kategori_barang =  $db->real_escape_string($_POST['id_kategori_barang']);
    $nama_kategori_barang =  $db->real_escape_string($_POST['nama_kategori_barang']);
-   $deskripsi_kategori_barang =  $db->real_escape_string($_POST['deskripsi_kategori$deskripsi_kategori_barang']);
+   $deskripsi_kategori_barang =  $db->real_escape_string($_POST['deskripsi_kategori_barang']);
 
    // Update kategori_barang
-   $sql = "UPDATE kategori_barang SET nama_kategori_barang = '$nama_kategori_barang' WHERE id_kategori_barang = $id_kategori_barang";
+   $sql = "UPDATE kategori_barang SET nama_kategori_barang = '$nama_kategori_barang', deskripsi_kategori_barang = '$deskripsi_kategori_barang' WHERE id_kategori_barang = $id_kategori_barang";
    if ($db->query($sql) === TRUE) {
       echo "<script>alert('kategori_barang updated successfully.');window.location.href='index.php?page=pages/kategori_barang/index';</script>";
    } else {
@@ -26,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="card">
          <div class="card-body">
             <h5 class="card-title mb-4">Update data tahun ajaran</h5>
-            <?php if (isset($error)): ?>
+            <?php if (!empty($error)): ?>
                <div class="alert alert-danger" role="alert">
                   <?php echo $error; ?>
                </div>
@@ -42,8 +44,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   <input type="text" class="form-control p-input" id="nama_kategori_barang" placeholder="Masukkan nama kategori_barang" name="nama_kategori_barang" required value="<?= $kategori_barang['nama_kategori_barang'] ?>">
                </div>
                <div class="form-group">
-                  <label for="deskripsi_kategori$deskripsi_kategori_barang">deskripsi kategori barang </label>
-                  <input type="text" class="form-control p-input" id="deskripsi_kategori$deskripsi_kategori_barang" placeholder="Masukkan deskripsi_kategori$deskripsi_kategori_barang" name="deskripsi_kategori$deskripsi_kategori_barang" required value="<?= $kategori_barang['deskripsi_kategori$deskripsi_kategori_barang'] ?>">
+                  <label for="deskripsi_kategori_barang">deskripsi kategori barang </label>
+                  <input type="text" class="form-control p-input" id="deskripsi_kategori_barang" placeholder="Masukkan deskripsi kategori_barang" name="deskripsi_kategori_barang" required value="<?= $kategori_barang['deskripsi_kategori_barang'] ?>">
                </div>
                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Update</button>
             </form>

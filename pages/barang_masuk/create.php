@@ -1,13 +1,16 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-   $id_kategori =  $db->real_escape_string($_POST['id_kategori']);
-   $nama_kategori =  $db->real_escape_string($_POST['nama_kategori']);
-   $deskripsi_kategori =  $db->real_escape_string($_POST['deskripsi_kategori']);
+   $id_barang_masuk =  $db->real_escape_string($_POST['id_barang_masuk']);
+   $id_barang =  $db->real_escape_string($_POST['id_barang']);
+   $id_supplier =  $db->real_escape_string($_POST['id_supplier']);
+   $tgl_masuk_barang =  $db->real_escape_string($_POST['tgl_masuk_barang']);
+   $jml_barang_masuk =  $db->real_escape_string($_POST['jml_barang_masuk']);
+   $keterangan =  $db->real_escape_string($_POST['keterangan']);
 
    // Insert ke database
-   $sql = "INSERT INTO kategori (id_kategori,nama_kategori,deskripsi_kategori) VALUES ('$id_kategori','$nama_kategori','$deskripsi_kategori')";
+   $sql = "INSERT INTO barang_masuk (id_barang_masuk,id_barang,id_supplier,tgl_barang_masuk,jml_barang_masuk,keterangan) VALUES ('$id_barang_masuk','$id_barang','$id_supplier','$tgl_masuk_barang','$jml_barang_masuk','$keterangan')";
    if ($db->query($sql) === TRUE) {
-      echo "<script>alert('kategori created successfully.');window.location.href='index.php?page=pages/kategori/index';</script>";
+      echo "<script>alert('barang_masuk created successfully.');window.location.href='index.php?page=pages/barang_masuk/index';</script>";
    } else {
       $error = "Error: " . $sql . "<br>" . $db->error;
    }
@@ -27,16 +30,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
             <form action="" method="post">
                <div class="form-group">
-                  <label for="id_kategori">ID Kategori </label>
-                  <input type="text" class="form-control p-input" id="id_kategori" placeholder="Masukkan id_kategori" name="id_kategori" required>
+                  <label for="id_barang_masuk">ID barang masuk </label>
+                  <input type="text" class="form-control p-input" id="id_barang_masuk" placeholder="Masukkan id_barang_masuk" name="id_barang_masuk" required>
                </div>
                <div class="form-group">
-                  <label for="nama_kategori">Nama kategori </label>
-                  <input type="text" class="form-control p-input" id="nama_kategori" placeholder="Masukkan nama_kategori" name="nama_kategori" required>
+                  <label for="id_barang">id barang </label>
+                  <input type="text" class="form-control p-input" id="id_barang" placeholder="Masukkan id_barang" name="id_barang" required>
                </div>
                <div class="form-group">
-                  <label for="deskripsi_kategori">Deskripsi Kategori </label>
-                  <input type="text" class="form-control p-input" id="deskripsi_kategori" placeholder="Masukkan deskripsi_kategori" name="deskripsi_kategori" required>
+                  <label for="id_supplier">id supplier </label>
+                  <input type="text" class="form-control p-input" id="id_supplier" placeholder="Masukkan id_supplier" name="id_supplier" required>
+               </div>
+               <div class="form-group">
+                  <label for="tgl_masuk_barang">tanggal barang masuk </label>
+                  <input type="text" class="form-control p-input" id="tgl_masuk_barang" placeholder="Masukkan tgl_masuk_barang" name="tgl_masuk_barang" required>
+               </div>
+               <div class="form-group">
+                  <label for="jml_barang_masuk">jumlah barang masuk </label>
+                  <input type="text" class="form-control p-input" id="jml_barang_masuk" placeholder="Masukkan jml_barang_masuk" name="jml_barang_masuk" required>
+               </div>
+               <div class="form-group">
+                  <label for="keterangan">Keterangan</label>
+                  <input type="text" class="form-control p-input" id="keterangan" placeholder="Masukkan keterangan" name="keterangan" required>
                </div>
                <button type="submit" class="btn btn-primary btn-block"><i class="fa fa-paper-plane"></i> Submit</button>
             </form>

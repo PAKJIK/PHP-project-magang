@@ -1,13 +1,28 @@
 <?php
-$barang = $_GET['barang'];
-$sql = "DELETE FROM supplier WHERE barang=$barang";
-if ($db->query($sql) === TRUE) {
-   echo "<script>alert('supplier deleted successfully.');window.location.href='index.php?page=pages/supplier/index';</script>";
+// Assuming $db is your database connection
+
+// Check if id_barang is set in the GET request
+if (isset($_GET['id_barang'])) {
+    $id_barang = $db->real_escape_string($_GET['id_barang']);
+
+    // Prepare the SQL query using a prepared statement
+    $sql = "DELETE FROM barang WHERE id_barang=?";
+    $stmt = $db->prepare($sql);
+
+    if ($stmt) {
+        $stmt->bind_param("i", $id_barang); // Assuming id_barang is an integer
+        if ($stmt->execute()) {
+            echo "<script>alert('Barang deleted successfully.');window.location.href='index.php?page=pages/barang/index';</script>";
+        } else {
+            $error = "Error: " . $db->error;
+            echo "<script>alert('$error');window.location.href='index.php?page=pages/barang/index';</script>";
+        }
+
+        $stmt->close();
+    } else {
+        echo "<script>alert('Failed to prepare the statement.');window.location.href='index.php?page=pages/barang/index';</script>";
+    }
 } else {
-   if($db->errno ==1451) {
-      echo "<script>alert('cannot delete this barang because it is referenced in other tables.');window.location.href</script>";
-   }else {
-     $error = "error" .$sql ."<br>".$db->error;
-     echo "<script>alert($error);window.location.href='index.php?page/barang/index';</script>";
+    echo "<script>alert('id_barang is missing.');window.location.href='index.php?page=pages/barang/index';</script>";
 }
-}
+?>
